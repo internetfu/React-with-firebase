@@ -10,7 +10,7 @@ class StorePicker extends Component {
 
     goToStore = event => {
         event.preventDefault();
-        // this.ref.current
+        
         const storeName = this.myInput.current.value;
         this.props.history.push(`/store/${storeName}`);
     };
