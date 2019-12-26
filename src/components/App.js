@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header';
 import Inventory from './Inventory';
 import Order from './Order';
+import fishes from '../sample-fishes';
 
 export default class App extends Component {
     state = {
@@ -19,6 +20,12 @@ export default class App extends Component {
         });
     };
 
+    loadSampleFishes = () => {
+        this.setState({
+            fishes: fishes
+        });
+    };
+
     render() {
         return (
             <div className="catch-of-the-day">
@@ -26,7 +33,10 @@ export default class App extends Component {
                     <Header tagline="Fresh Seafood Market"></Header>
                 </div>
                 <Order></Order>
-                <Inventory addFish={this.addFish}></Inventory>
+                <Inventory
+                    addFish={this.addFish}
+                    loadSampleFishes={this.loadSampleFishes}
+                ></Inventory>
             </div>
         );
     }
