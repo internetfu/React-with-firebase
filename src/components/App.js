@@ -26,6 +26,14 @@ export default class App extends Component {
         });
     };
 
+    addToOrder = key => {
+        const order = { ...this.state.order };
+
+        order[key] = order[key] + 1 || 1;
+
+        this.setState({ order: order });
+    };
+
     render() {
         return (
             <div className="catch-of-the-day">
@@ -35,7 +43,9 @@ export default class App extends Component {
                         {Object.keys(this.state.fishes).map(key => (
                             <Fish
                                 key={key}
+                                orderKey={key}
                                 details={this.state.fishes[key]}
+                                addToOrder={this.addToOrder}
                             ></Fish>
                         ))}
                     </ul>
