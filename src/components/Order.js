@@ -7,6 +7,8 @@ export default class Order extends Component {
         const count = this.props.order[key];
         const isAvailable = fish && fish.status === 'available';
 
+        if (!fish) return null;
+        
         if (!isAvailable) {
             return (
                 <li key={key}>
@@ -47,5 +49,9 @@ export default class Order extends Component {
                 </div>
             </div>
         );
+    }
+
+    componentWillUnmount() {
+        console.log('will unmount!!!');
     }
 }
