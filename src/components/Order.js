@@ -50,8 +50,4 @@ export default class Order extends Component {
             </div>
         );
     }
-
-    componentWillUnmount() {
-        console.log('will unmount!!!');
-    }
 }
