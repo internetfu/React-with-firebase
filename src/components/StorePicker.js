@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { getFunName } from '../helpers';
+import PropTypes from 'prop-types';
+
 class StorePicker extends Component {
     constructor() {
         super();
@@ -8,9 +10,13 @@ class StorePicker extends Component {
         this.goToStore = this.goToStore.bind(this);
     }
 
+    static propTypes = {
+        history: PropTypes.object
+    };
+
     goToStore = event => {
         event.preventDefault();
-        
+
         const storeName = this.myInput.current.value;
         this.props.history.push(`/store/${storeName}`);
     };

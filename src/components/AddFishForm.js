@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class AddFishForm extends Component {
     constructor() {
@@ -12,6 +13,10 @@ export default class AddFishForm extends Component {
 
         this.createFish = this.createFish.bind(this);
     }
+
+    static propTypes = {
+        addFish: PropTypes.func
+    };
 
     createFish = event => {
         event.preventDefault();

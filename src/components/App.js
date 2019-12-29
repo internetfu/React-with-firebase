@@ -5,11 +5,16 @@ import Order from './Order';
 import fishes from '../sample-fishes';
 import Fish from './Fish';
 import base from '../base';
+import PropTypes from 'prop-types';
 
 export default class App extends Component {
     state = {
         fishes: {},
         order: {}
+    };
+
+    static propTypes = {
+        match: PropTypes.object
     };
 
     componentDidMount() {
@@ -84,7 +89,7 @@ export default class App extends Component {
         return (
             <div className="catch-of-the-day">
                 <div className="menu">
-                    <Header tagline="Fresh Seafood Market"></Header>
+                    <Header tagline={'Fresh Seafood Market'}></Header>
                     <ul className="fishes">
                         {Object.keys(this.state.fishes).map(key => (
                             <Fish
