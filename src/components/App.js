@@ -21,7 +21,7 @@ export default class App extends Component {
                 order: JSON.parse(localStorageRef)
             });
         }
-        
+
         this.ref = base.syncState(`${params.storeId}/fishes`, {
             context: this,
             state: 'fishes'
@@ -47,6 +47,13 @@ export default class App extends Component {
         this.setState({
             fishes: fishes
         });
+    };
+
+    updateFish = (key, updatedFish) => {
+        const fishes = { ...this.state.fishes };
+        fishes[key] = updatedFish;
+
+        this.setState({ fishes });
     };
 
     loadSampleFishes = () => {
@@ -86,6 +93,8 @@ export default class App extends Component {
                 <Inventory
                     addFish={this.addFish}
                     loadSampleFishes={this.loadSampleFishes}
+                    fishes={this.state.fishes}
+                    updateFish={this.updateFish}
                 ></Inventory>
             </div>
         );
