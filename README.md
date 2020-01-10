@@ -1,6 +1,6 @@
 # catch-of-the-day
 
-##React practice with firebase database and firebase auth
+## React practice with firebase database and firebase auth
 
 ## Running
 
