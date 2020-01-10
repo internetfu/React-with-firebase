@@ -3,7 +3,7 @@ import AddFishForm from './AddFishForm';
 import EditFishForm from './EditFishForm';
 import PropTypes from 'prop-types';
 import Login from './Login';
-import firebase, { auth } from 'firebase/app';
+import firebase from 'firebase/app';
 import 'firebase/auth';
 import base, { firebaseApp } from '../base';
 
@@ -35,7 +35,6 @@ export default class Inventory extends Component {
             owner: store.owner || authData.user.uid
         });
 
-        console.log(store);
     };
     authentiucate = provider => {
         const authProvider = new firebase.auth[`${provider}AuthProvider`]();
